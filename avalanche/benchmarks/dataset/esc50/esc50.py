@@ -1,4 +1,4 @@
-import esc50_data
+from benchmarks.dataset.esc50 import esc50_data
 from torch.utils.data import Dataset
 from torch.nn import Module
 import os
