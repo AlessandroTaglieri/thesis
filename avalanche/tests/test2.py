@@ -45,7 +45,7 @@ def  test_EWC_CNN():
 
 def  test_EWC_CNN_v2():
 
-    splitEsc =  CLEsc50(n_experiences=5, seed=123, return_task_id=True,fixed_class_order=None,shuffle=True)
+    splitEsc =  CLEsc50(n_experiences=10, seed=123, return_task_id=True,fixed_class_order=None,shuffle=True)
 
     model = CNN()
     optimizer = SGD(model.parameters(), lr=0.001, momentum=0.9)
@@ -53,7 +53,7 @@ def  test_EWC_CNN_v2():
 
     cl_strategy = EWC(
         model, optimizer, criterion, ewc_lambda=0.4,
-        train_mb_size=15, train_epochs=10, eval_mb_size=15
+        train_mb_size=15, train_epochs=25, eval_mb_size=15
     )
 
     train_stream = splitEsc.train_stream

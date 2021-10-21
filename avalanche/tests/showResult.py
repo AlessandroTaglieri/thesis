@@ -43,8 +43,10 @@ def plotResults(results, n_exp):
     plt.xlabel('Experience')
     plt.ylabel('Accuracy')
     plt.xticks(x_exp)
-    plt.ylim(0,10)
+    plt.ylim(0,0.7)
+    plt.grid()
     plt.show()
+    
     print('\n\n\n####################################################################################################################################')
     print('\nThe following plot shows the behaviour of the loss in test set during training over all experience')
     
