@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 
-def plotResults(results, n_exp):
+def plotResults(results, n_exp, nc = True):
     loss_str = 'Loss_Stream/eval_phase/test_stream/'
     accuracy_str = 'Top1_Acc_Stream/eval_phase/test_stream/'
     df_acc = pd.DataFrame()
@@ -14,8 +14,11 @@ def plotResults(results, n_exp):
         acc = []
         loss = []
         for i in range(n_exp):
-
-            s = 'Task00' +str(i)
+            if nc:
+                
+                s = 'Task00' +str(i)
+            else:
+                s = 'Task000'
             acc.append(results[exp][accuracy_str+s])
             loss.append(results[exp][loss_str+s])
           
@@ -56,3 +59,5 @@ def plotResults(results, n_exp):
     plt.xlabel('Experience')
     plt.ylabel('Loss')
     plt.show()
+
+    return [x_exp, res_acc]

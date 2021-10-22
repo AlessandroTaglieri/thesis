@@ -8,16 +8,15 @@ from benchmarks.classic.splitESC50_v2 import CLEsc50, CLEsc50_v2
 import pandas as pd
 
 
-def test_Replay_CNN_ni():
+def test_Naive_CNN_ni():
 
-    splitEsc =  CLEsc50(n_experiences=10, seed=123, return_task_id=True,fixed_class_order=None,shuffle=True)
+    splitEsc =  CLEsc50(n_experiences=10, seed=123, return_task_id=True,balance_experiences=True,shuffle=True)
 
-    model = CNN()
+    model = CNN(num_classes=50)
     optimizer = SGD(model.parameters(), lr=0.001, momentum=0.9)
     criterion = CrossEntropyLoss()
 
-    cl_strategy = Replay( model, optimizer, criterion,
-        train_mb_size=15, train_epochs=20, eval_mb_size=15)
+    cl_strategy = Naive(model, optimizer, criterion, train_mb_size=15, train_epochs=25, eval_mb_size=15)
 
     train_stream = splitEsc.train_stream
     test_stream = splitEsc.test_stream

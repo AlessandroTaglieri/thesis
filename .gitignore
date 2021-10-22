@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+#dataset to download
+
+avalanche/tests/ESC-50-master.zip
+
+avalanche/tests/ESC-50-master/
+
+avalanche/tests/idea/
+
+avalanche/tests/ipynb_checkpoints
+avalanche/tests/*.pyc
+
