@@ -36,6 +36,7 @@ def  test_Replay_CNN_nc():
         results.append(cl_strategy.eval(test_stream))
         #print(cl_strategy.eval(scenario.test_stream))
         print('**************************************')
+    return results
 
 def test_Replay_CNN():
 
