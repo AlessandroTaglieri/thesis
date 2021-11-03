@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 
-def plotResults2(results, n_exp, nc = True):
+def plotResults(results, n_exp, nc = True):
     loss_str = 'Loss_Stream/eval_phase/test_stream/'
     accuracy_str = 'Top1_Acc_Stream/eval_phase/test_stream/'
     btw_str = 'ExperienceBWT/eval_phase/test_stream/'
@@ -35,17 +35,19 @@ def plotResults2(results, n_exp, nc = True):
                     btw.append(0)
             else:
                 s = 'Task000'
+                
             
             acc.append(results[exp][accuracy_str+s])
             loss.append(results[exp][loss_str+s])
-
-        df_btw['after exp_' + str(exp)] = btw
+        if nc:
+          df_btw['after exp_' + str(exp)] = btw
         df_acc['after exp_' + str(exp)] = acc
         df_loss['after exp_' + str(exp)] = loss
-    print('\n####################################################################################################################################')
-    print('\nThe following table contains BTW on test set after training x Experience. Each column stays for x exp trained.')
-    
-    display(df_btw)
+    if nc:
+        print('\n####################################################################################################################################')
+        print('\nThe following table contains BTW on test set after training x Experience. Each column stays for x exp trained.')
+        
+        display(df_btw)
 
     print('\n\n####################################################################################################################################')
     print('\nThe following plot shows the behaviour of the BWT in test set during training over all experience')
