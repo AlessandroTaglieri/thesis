@@ -25,11 +25,12 @@ def test_Replay_CNN_ni():
             accuracy_metrics(
                 minibatch=True, epoch=True, experience=True, stream=True),
             loss_metrics(minibatch=True, epoch=True, experience=True, stream=True),
+            forgetting_metrics(experience=True, stream=True),
             bwt_metrics(experience=True,stream=True),
-            #forward_transfer_metrics(experience=True,stream=True),
+            forward_transfer_metrics(experience=True,stream=True),
             loggers=[interactive_logger])
     cl_strategy = Replay( model, optimizer, criterion,
-        train_mb_size=15, train_epochs=25, eval_mb_size=15,evaluator=eval_plugin)#, eval_every = 0)
+        train_mb_size=15, train_epochs=25, eval_mb_size=15,evaluator=eval_plugin, eval_every = 1)
 
     train_stream = splitEsc.train_stream
     test_stream = splitEsc.test_stream
@@ -40,7 +41,8 @@ def test_Replay_CNN_ni():
         print("Start of experience: ", experience.current_experience)
         print("Current Classes: ", experience.classes_in_this_experience)
 
-        cl_strategy.train(experience)
+        cl_strategy.train(experience,
+                                eval_streams=[test_stream])
         print('Training completed')
 
         print('Computing accuracy on the whole test set')

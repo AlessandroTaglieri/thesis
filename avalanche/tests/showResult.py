@@ -9,15 +9,21 @@ def plotResults(results, n_exp, nc = True):
     accuracy_str = 'Top1_Acc_Stream/eval_phase/test_stream/'
     btw_str = 'ExperienceBWT/eval_phase/test_stream/'
     btw_avg_str = 'StreamBWT/eval_phase/test_stream'
+    fwt_avg_str = 'StreamForwardTransfer/eval_phase/test_stream'
+    forgetting_avg_str = 'StreamForgetting/eval_phase/test_stream'
     df_acc = pd.DataFrame()
     df_loss = pd.DataFrame()
     df_btw = pd.DataFrame()
     btw_avg = []
+    fwt_avg = []
+    forgetting_avg = []
     for exp in range(n_exp):
-        #print('training exp:', exp)
+        
         acc = []
         loss = []
         btw = []
+        fwt_avg.append(results[exp][fwt_avg_str])
+        #forgetting_avg.append(results[exp][forgetting_avg_str])
         btw_avg.append(results[exp][btw_avg_str])
         for i in range(n_exp):
 
@@ -50,7 +56,7 @@ def plotResults(results, n_exp, nc = True):
         display(df_btw)
 
     print('\n\n####################################################################################################################################')
-    print('\nThe following plot shows the behaviour of the BWT in test set during training over all experience')
+    print('\nThe following plot shows the behaviour of the average BWT in test set during training over all experience')
     
     
     x_exp = [i for i in range(n_exp)]
@@ -65,6 +71,41 @@ def plotResults(results, n_exp, nc = True):
     plt.show()
     res_acc = list(df_acc.mean())
     res_loss = list(df_loss.mean())
+
+    print('\n\n####################################################################################################################################')
+    print('\nThe following plot shows the behaviour of the average FORGETTING in test set during training over all experience')
+    
+    
+    x_exp = [i for i in range(n_exp)]
+    
+    fig = plt.figure(figsize=(8, 6), dpi=80)
+    plt.plot(x_exp, forgetting_avg, label = 'BTW')
+    plt.title('Forgetting after x exp')
+    plt.xlabel('Experience')
+    plt.ylabel('FORGETTING')
+    plt.xticks(x_exp)
+    plt.grid()
+    plt.show()
+    res_acc = list(df_acc.mean())
+    res_loss = list(df_loss.mean())
+
+    print('\n\n####################################################################################################################################')
+    print('\nThe following plot shows the behaviour of the average FWT in test set during training over all experience')
+    
+    
+    x_exp = [i for i in range(n_exp)]
+    
+    fig = plt.figure(figsize=(8, 6), dpi=80)
+    plt.plot(x_exp, fwt_avg, label = 'BTW')
+    plt.title('FWT after x exp')
+    plt.xlabel('Experience')
+    plt.ylabel('FWT')
+    plt.xticks(x_exp)
+    plt.grid()
+    plt.show()
+    res_acc = list(df_acc.mean())
+    res_loss = list(df_loss.mean())
+
     print('\n####################################################################################################################################')
     print('\nThe following table contains accuracy and loss values obtained on test set after training x Experience. Each column stays for x exp trained.')
     columns = ['Exp_' +str(i) for i in range(n_exp)]
