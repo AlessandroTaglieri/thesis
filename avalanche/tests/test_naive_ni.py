@@ -29,7 +29,7 @@ def test_Naive_CNN_ni():
             bwt_metrics(experience=True,stream=True),
             forward_transfer_metrics(experience=True,stream=True),
             loggers=[interactive_logger])
-    cl_strategy = Naive(model, optimizer, criterion, train_mb_size=15, train_epochs=25, eval_mb_size=15,evaluator=eval_plugin, eval_every = 1)
+    cl_strategy = Naive(model, optimizer, criterion, train_mb_size=15, train_epochs=25, eval_mb_size=15,evaluator=eval_plugin, eval_every = 0)
 
     train_stream = splitEsc.train_stream
     test_stream = splitEsc.test_stream

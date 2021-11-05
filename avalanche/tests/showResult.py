@@ -23,7 +23,7 @@ def plotResults(results, n_exp, nc = True):
         loss = []
         btw = []
         fwt_avg.append(results[exp][fwt_avg_str])
-        #forgetting_avg.append(results[exp][forgetting_avg_str])
+        forgetting_avg.append(results[exp][forgetting_avg_str])
         btw_avg.append(results[exp][btw_avg_str])
         for i in range(n_exp):
 

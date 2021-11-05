@@ -32,7 +32,7 @@ def  test_EWC_CNN_nc():
             loggers=[interactive_logger])
     cl_strategy = EWC(
         model, optimizer, criterion, ewc_lambda=0.4,
-        train_mb_size=15, train_epochs=25, eval_mb_size=15,evaluator=eval_plugin, eval_every = 1)
+        train_mb_size=15, train_epochs=25, eval_mb_size=15,evaluator=eval_plugin, eval_every = 0)
 
     
 
