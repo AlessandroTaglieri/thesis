@@ -136,6 +136,7 @@ def plotResults(results, n_exp, name, nc = True):
     plt.title('Loss after x exp')
     plt.xlabel('Experience')
     plt.ylabel('Loss metric')
+    plt.grid()
     plt.show()
     fig.savefig('plotMetrics/'+name+'_LossMetric.png', dpi=fig.dpi)
 
@@ -160,7 +161,7 @@ def compareResults(x, y, title, ylabel, list_labels,name):
     plt.ylabel(ylabel)
     plt.title(title)
     plt.xticks(x)
-    
+    plt.legend()
     plt.grid()
     plt.show()
     fig.savefig('plotMetrics/compare_'+name+'.png', dpi=fig.dpi)
