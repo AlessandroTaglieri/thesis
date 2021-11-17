@@ -140,3 +140,6 @@ avalanche/tests/idea/
 avalanche/tests/ipynb_checkpoints
 avalanche/tests/*.pyc
 
+avalanche/tests/wandb/
+
+avalanche/tests/tb_data/
