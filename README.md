@@ -4,7 +4,9 @@ Student: Alessandro Taglieri, 1890945
 
 Prof: Simone Scardapane
 
-## Implementation of Continual Learning Benchamrk in Avalanche library for Audio Classification. (Event Sound Classification)
+## Title: Evaluating continual learning strategies for audio classification 
+
+Implementation of Continual Learning Benchamrk in Avalanche library for Audio Classification. (Event Sound Classification)
 
 Dataset: ESC50 audio dataset. Source: https://github.com/karolpiczak/ESC-50
 
