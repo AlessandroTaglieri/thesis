@@ -254,12 +254,12 @@ def compareResults(x, y, title, ylabel, list_labels,name,nc):
     for index in range(len(y)):
         plt.plot(x, y[index], label = list_labels[index])
     
-    plt.title(title)
-    plt.xlabel('Experience')
-    plt.ylabel(ylabel)
+    plt.title(title,fontsize=20)
+    plt.xlabel('Experience', fontsize=18)
+    plt.ylabel(ylabel, fontsize=18)
     
-    plt.xticks(x)
-    plt.legend()
+    plt.xticks(x, size = 14)
+    plt.legend(prop={'size': 16})
     plt.grid()
     plt.show()
     
@@ -270,11 +270,11 @@ def compareResults(x, y, title, ylabel, list_labels,name,nc):
      list_labels[2]: y[2]
     })
     plt.violinplot(data,showmeans=True,vert=True)
-    plt.title(title)
-    plt.xlabel('Continual learning technique')
-    plt.ylabel(ylabel)
+    plt.title(title ,fontsize=20)
+    plt.xlabel('Continual learning technique',fontsize=18)
+    plt.ylabel(ylabel ,fontsize=18)
     
-    ax.set_xticklabels(['',list_labels[0],'', list_labels[1],'',list_labels[2]])
+    ax.set_xticklabels(['',list_labels[0],'', list_labels[1],'',list_labels[2]], size = 14)
 
     
     plt.grid()
