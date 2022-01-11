@@ -1,8 +1,8 @@
 # THESIS MSc Data Science - La Sapienza 2020/2021
 
-Student: Alessandro Taglieri, 1890945
+Candidate: Alessandro Taglieri, 1890945
 
-Prof: Simone Scardapane
+Supervisor: Simone Scardapane
 
 ## Title: Evaluating continual learning strategies for audio classification 
 
