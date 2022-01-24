@@ -1,0 +1,6 @@
+avalanche-lib
+librosa
+torchaudio
+wandb
+matplotlib
+
