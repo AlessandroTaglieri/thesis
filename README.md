@@ -6,7 +6,7 @@ Supervisor: Simone Scardapane
 
 ## Title: Evaluating continual learning strategies for audio classification 
 
-Implementation and Evaluation of Continual Learning Benchamrk in Avalanche library for Audio Classification. (Event Sound Classification)
+Implementation and Evaluation of Continual Learning strategies on different benchmarks for Audio Classification (Event Sound Classification), using Avalanche library.
 
 Dataset: ESC50 audio dataset. Source: https://github.com/karolpiczak/ESC-50
 
